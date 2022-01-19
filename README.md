@@ -1,2 +1,2 @@
 # movie-website
- A website with poster movies and card
+ A website with movie posters and card
