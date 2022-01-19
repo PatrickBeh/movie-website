@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar Section Starts here -->
+    <div class="navbar__container">
+      <a href="#" class="navbar__logo"
+        ><i class="fas fa-camera-retro"></i>Movies</a
+      >
+      <div class="navbar__search">
+        <input type="search" placeholder="Pesquisa" /><i
+          class="fas fa-search"
+        ></i>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="#">Catálogo</a></li>
+        <li class="navbar__item"><a href="#">Favoritos</a></li>
+        <li class="navbar__item">
+          <a href=""><i class="fas fa-shopping-cart"></i>Carrinho</a>
+        </li>
+      </ul>
+      <div class="navbar__burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+    <div id="main--container" class="main__container">
+      <div id="movies"></div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Card Section -->
+    <script>
+      $(function () {
+        $.ajax({
+          url: "https://api.themoviedb.org/3/discover/movie/?api_key=263cc4e66b027ef750b83fee5c627a39",
+          method: "GET",
+          dataType: "json",
+          success: function (response) {
+            console.log(response);
+            $.each(response.results, function (index, value) {
+              var html = `
+                            <div class='card__movies'>
+                              <div style='min-height:100px'>
+                                <img src='http://image.tmdb.org/t/p/w500/${value.poster_path}'/>
+
+                                <h1>${value.title}</h1>
+                                <p>${value.release_date}</p>
+                                <div class='card__checkout__btn'>
+                                  <div class='card__checkout__btn__wrapper'>
+                                    <div>
+                                    <p class='card__vote'>
+                                    <i class="fas fa-star"></i>${value.vote_average}
+                                    </p>
+                                    </div>
+                                    <div>
+                                    <a href="#" class='card__heart'>
+                                      <i class="far fa-heart"></i>
+                                    </a>
+                                    <a href="#" class='card__cart'>
+                                      <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          `;
+              $("#movies").append(html);
+            });
+          },
+        });
+      });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
