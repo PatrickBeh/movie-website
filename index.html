@@ -57,7 +57,6 @@
           method: "GET",
           dataType: "json",
           success: function (response) {
-            console.log(response);
             $.each(response.results, function (index, value) {
               var html = `
                             <div class='card__movies'>
