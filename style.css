@@ -151,7 +151,7 @@ body {
     margin-bottom: 5px;
   }
 }
-@media screen and (max-width: 1100px) and (min-width: 769px) {
+@media screen and (max-width: 1200px) and (min-width: 769px) {
   .navbar__container {
     height: 30vh;
   }
