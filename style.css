@@ -22,6 +22,9 @@ body {
   color: #1c9b8d;
   position: relative;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
 
 .navbar__logo {
@@ -43,6 +46,7 @@ body {
 }
 .navbar__search i {
   color: #1c9b8d;
+  margin-right: 8px;
 }
 .navbar__search i:hover {
   cursor: pointer;
@@ -52,7 +56,7 @@ body {
   border: none;
   background: transparent;
   color: #eadba7;
-  padding: 8px;
+  padding: 8px 24px;
 }
 .navbar__search input:focus {
   background: transparent;
@@ -104,6 +108,10 @@ body {
     position: relative;
     margin-bottom: 30px;
   }
+  .navbar__search input {
+    padding: 4px 18px;
+    font-size: 0.8em;
+  }
   .navbar__container {
     height: 20vh;
     width: 100%;
@@ -140,6 +148,7 @@ body {
     display: block;
     bottom: 0;
     position: absolute;
+    margin-bottom: 5px;
   }
 }
 @media screen and (max-width: 1100px) and (min-width: 769px) {
@@ -160,11 +169,21 @@ body {
     left: 0;
   }
 }
+@media screen and (max-width: 300px) {
+  .navbar__search input {
+    padding: 0;
+    margin-left: 5px;
+  }
+  .navbar__search i {
+    right: 0;
+    margin-right: 5px;
+  }
+}
 
 .navbar--active {
   transform: translateX(0%);
 }
-
+/* Burger animation */
 @keyframes navLinkFade {
   from {
     opacity: 0;
@@ -191,13 +210,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 25vh;
 }
 .card__movies {
   flex-basis: 20%;
   margin: 10px;
   border: #eadba7 2px solid;
   position: relative;
-  min-height: 640px;
+  min-height: 510px;
 }
 .card__movies img {
   display: block;
@@ -206,6 +226,24 @@ body {
 }
 .card__movies h1 {
   font-size: 1.5rem;
+}
+.card__movies__wrapper {
+  min-height: 50vh;
+  position: relative;
+}
+.card__image {
+  position: absolute;
+}
+.card__image__animation {
+  position: absolute;
+  color: #073e52;
+  opacity: 0;
+  max-height: 100%;
+}
+.card__image__animation:hover {
+  opacity: 0.8;
+  background-color: #eadba7;
+  transition: all 0.3s ease;
 }
 .card__checkout__btn {
   width: 100%;
@@ -219,6 +257,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-right: 10px;
 }
 
 .card__checkout__btn__wrapper div {
@@ -227,6 +266,9 @@ body {
 }
 .card__vote {
   color: #eadba7;
+}
+.card__button {
+  display: flex;
 }
 .card__cart {
   color: #1c9b8d;
@@ -246,18 +288,43 @@ body {
 }
 
 /* Cards Responsive */
+
+@media screen and (max-width: 1400px) and (min-width: 1101px) {
+  .card__movies {
+    min-height: 400px;
+  }
+}
 @media screen and (max-width: 1100px) and (min-width: 769px) {
   .card__movies {
     flex-basis: 40%;
+    min-height: 566px;
+  }
+  #movies {
+    margin-top: 35vh;
+  }
+  .card__checkout__btn__wrapper {
+    font-size: 1.5em;
   }
 }
 @media screen and (max-width: 768px) {
   .card__movies {
     flex-basis: 60%;
+    min-height: 350px;
+    font-size: 0.8em;
+  }
+  .card__checkout__btn__wrapper {
+    font-size: 1.5em;
   }
 }
-
-/* Heart */
-.red {
-  background-color: red;
+@media screen and (max-width: 400px) {
+  .card__movies__wrapper {
+    min-height: 40vh;
+  }
+  .card__checkout__btn__wrapper {
+    font-size: 1.3em;
+  }
+  .card__heart,
+  .card__cart {
+    padding: 10px;
+  }
 }
