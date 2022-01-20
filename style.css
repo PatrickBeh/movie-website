@@ -226,6 +226,11 @@ body {
 }
 .card__movies h1 {
   font-size: 1.5rem;
+  color: #1c9b8d;
+  padding: 10px;
+}
+.card__movies p {
+  padding: 10px;
 }
 .card__movies__wrapper {
   min-height: 50vh;
@@ -236,12 +241,16 @@ body {
 }
 .card__image__animation {
   position: absolute;
+  transform: scale(101%);
   color: #073e52;
+  font-weight: 600;
+  border-radius: 8px;
   opacity: 0;
-  max-height: 100%;
+  min-height: 60vh;
+  z-index: 99;
 }
 .card__image__animation:hover {
-  opacity: 0.8;
+  opacity: 0.7;
   background-color: #eadba7;
   transition: all 0.3s ease;
 }
@@ -303,7 +312,7 @@ body {
     margin-top: 35vh;
   }
   .card__checkout__btn__wrapper {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }
 @media screen and (max-width: 768px) {
